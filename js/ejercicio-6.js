@@ -14,34 +14,58 @@ Por último, indicar cuál de los 2 objetos “libros” tiene más páginas.
 */
 
 class Libro {
-    constructor(isbn, titulo, autor, numPaginas) {
-        this._isbn = isbn;
-        this._titulo = titulo;
-        this._autor = autor;
-        this._numPaginas = numPaginas;
+    constructor(Isbn, Titulo, Autor, NumPaginas) {
+        this.isbn = Isbn;
+        this.titulo = Titulo;
+        this.autor = Autor;
+        this.numPaginas = NumPaginas;
     }
 
-    get isbn() {
-        return this._isbn;
+    get Isbn() {
+        return this.isbn;
     }
 
-    get titulo() {
-        return this._titulo;
+    set Isbn(nuevoIsbn) {
+        this.isbn = nuevoIsbn;
     }
 
-    get autor() {
-        return this._autor;
+    get Titulo() {
+        return this.titulo;
     }
 
-    get numPaginas() {
-        return this._numPaginas;
+    set Titulo(nuevoTitulo) {
+        this.titulo = nuevoTitulo;                  
+    }
+
+    get Autor() {
+        return this.autor;
+    }
+
+    set Autor(nuevoAutor) {
+        this.autor = nuevoAutor;
+    }
+
+    get NumPaginas() {
+        return this.numPaginas;
+    }
+
+    set NumPaginas(nuevoNumPaginas) {
+        this.numPaginas = nuevoNumPaginas;
     }
 
     mostrarLibro() {
-        document.writeln(`<p>El libro <b>${this._titulo}</b> con ISBN <b>${this._isbn}</b> creado por el autor <b>${this._autor}</b> tiene páginas <b>${this._numPaginas}</b></p>`);
+        document.writeln(`<p>El libro <b>${this.titulo}</b> con ISBN <b>${this.isbn}</b> creado por el autor <b>${this.autor}</b> tiene páginas <b>${this.numPaginas}</b></p>`);
     }
 }
 
 const libro1 = new Libro("1234567890", "Las 48 leyes del poder", "Robert Greene", 526);
+const libro2 = new Libro("0987654321", "Meditaciones", "Marco Aurelio", 232);
 
 libro1.mostrarLibro();
+libro2.mostrarLibro();
+
+if( libro1.NumPaginas > libro2.NumPaginas) {
+    document.writeln(`<p>El libro <b>${libro1.Titulo}</b> tiene más páginas que el libro <b>${libro2.Titulo}</b></p>`);
+} else {
+    document.writeln(`<p>El libro <b>${libro2.Titulo}</b> tiene más páginas que el libro <b>${libro1.Titulo}</b></p>`);
+}
