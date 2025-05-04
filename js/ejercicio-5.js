@@ -41,7 +41,7 @@ class Persona {
     }
 
     esMayorDeEdad() {
-        if (this.edad <= 18) {
+        if (this.edad >= 18) {
             return ("Eres mayor de edad.");
         }
         else {
@@ -52,16 +52,21 @@ class Persona {
     mostrarDatos() {
         document.writeln(`<p>Tu nombre es: ${this.nombre}`);
         document.writeln(`<p>Tu edad es: ${this.edad} , ${this.esMayorDeEdad()}</p>`);
-        document.writeln(`<p>Tu dni es: ${this.dni}</p>`);
+        document.writeln(`<p>Tu dni es: ${this.generarDni()}</p>`);
         document.writeln(`<p>Tu sexo es: ${this.sexo}</p>`);
         document.writeln(`<p>Tu peso es: ${this.peso}</p>`);
         document.writeln(`<p>Tu altura es: ${this.altura}</p>`);
         document.writeln(`<p>Tu año de nacimiento es: ${this.añoNacimiento}`);
         document.writeln(`<p>Tu generación es: ${this.mostrarGeneracion()}</p>`);
     }
+
+    generarDni() {
+        return this.dni = Math.floor(Math.random() * 99999999) + 10000000;
+    }
 }
 
-const persona1 = new Persona("Lucas", 18, "43566719","Masculino", 85, 1.76, 2001);
+const persona1 = new Persona("Lucas", 23, 232323, "Masculino", 85, 1.76, 2001);
 persona1.mostrarDatos();
 persona1.mostrarGeneracion();
 persona1.esMayorDeEdad();
+persona1.generarDni();
