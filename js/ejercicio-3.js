@@ -20,11 +20,33 @@ class rectangulo {
     mostrarpropiedades() {
         return (`<p>El alto del rectangulo es: ${this.alto} y el ancho es: ${this.ancho}</p>`);
     }
+
+    modificarAlto(nuevoAlto) {
+        if(nuevoAlto > 0) {
+            this.alto = nuevoAlto;
+        } else {
+            alert('Ingrese un valor mayor a 0');
+        }
+    }
+
+    modificarAncho(nuevoAncho) {
+        if(nuevoAncho > 0) {
+            this.ancho = nuevoAncho;
+        } else {
+            alert('Ingrese un valor mayor a 0');
+        }
+    }
 }
 
-
-const miRectangulo = new rectangulo(5, 10);
+const miRectangulo = new rectangulo(10, 15);
 
 document.writeln(miRectangulo.mostrarpropiedades());
 document.writeln(`<p>El perimetro del rectangulo es: ${miRectangulo.calcularPerimetro()}</p>`);
 document.writeln(`<p>El area del rectangulo es: ${miRectangulo.calcularArea()}</p>`);
+
+miRectangulo.modificarAlto(8);
+miRectangulo.modificarAncho(12);
+
+document.writeln(miRectangulo.mostrarpropiedades());
+document.writeln(`<p>El nuevo perimetro del rectangulo es: ${miRectangulo.calcularPerimetro()}</p>`);
+document.writeln(`<p>Nueva area del rectangulo es: ${miRectangulo.calcularArea()}</p>`);
