@@ -36,11 +36,6 @@ class Agenda {
             alert('La agenda esta llena, no se puede añadir mas contactos');
             return false;
         }
-
-        if(this.existeContacto(contacto)) {
-            alert('El contacto ya existe');
-            return false;
-        }
         this.contactos.push(contacto);
         return true;
     }
@@ -59,7 +54,7 @@ class Agenda {
             alert('No hay contactos en la agenda');
             return;
         } else {            
-            let lista = "Lista de Contactos:"
+            let lista = "Lista de Contactos: "
             for(let i = 0; i < this.contactos.length; i++) {
                 lista += `${this.contactos[i].nombre} - ${this.contactos[i].telefono}`;
                 alert(lista);
@@ -78,11 +73,24 @@ class Agenda {
                 return true;
             }
         }
-        return false;
     }
 
     huecosLibres() {
         return this.tamaño - this.contactos.length;
+    }
+
+    eliminarContacto(nombre) {
+        const nombreBuscado = nombre.toLowerCase();
+        for(let i = 0; i < this.contactos.length; i++) {
+            if(this.contactos[i].nombre.toLowerCase() === nombreBuscado) {
+                this.contactos.splice(i, 1);
+                alert(`El contacto ${nombreBuscado} ha sido eliminado`);
+                return true;
+            } else {
+                alert(`El contacto ${nombreBuscado} no existe`);
+                return false;
+            }
+        }
     }
 }
 
@@ -103,17 +111,29 @@ do {
         case 1:
             const nombre = prompt("Introduce el nombre del contacto:");
             const telefono = prompt("Introduce el teléfono del contacto:");
-            if(nombre && telefono) {
+            if(!isNaN(nombre)) {
+                alert("El nombre no puede ser un número");
+            } else if (isNaN(telefono)){
+                alert("El teléfono no puede ser una letra");
+            } else if (agenda.existeContacto(nombre)) {
+                alert('El contacto ya existe')
+            } else if (agenda.huecosLibres() === 0) {
+                alert('Agenda llena')
+            } else {
                 agenda.añadirContacto(new Contacto(nombre, telefono));
                 alert('Contacto añadido correctamente')
-            } else {
-                alert("Nombre y teléfono son obligatorios");
             }
             break;
         case 2:
             const buscarNombre = prompt("Introduce el nombre del contacto a buscar:");
             if(buscarNombre) {
                 agenda.buscarContacto(buscarNombre);
+            }
+            break;
+        case 3:
+            const eliminarNombre = prompt("Introduce el nombre del contacto a eliminar:");
+            if(eliminarNombre) {
+                agenda.eliminarContacto(eliminarNombre);
             }
             break;
         case 4:
@@ -123,7 +143,7 @@ do {
             alert(`Huecos libres: ${agenda.huecosLibres()}`)
             break;
         case 6:
-            alert("Hasta pronto");
+            alert("Saliendo de la agenda..");
             break;
         default:
             alert("Opción no válida");
