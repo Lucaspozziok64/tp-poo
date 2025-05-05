@@ -32,9 +32,38 @@ class Agenda {
     }
 
     añadirContacto(contacto) {
+        if(this.agendaLlena()) {
+            alert('La agenda esta llena, no se puede añadir mas contactos');
+            return false;
+        }
         this.contactos.push(contacto);
-        document.writeln(`<p>Contacto <b>${contacto.nombre}</b> añadido correctamente</p>`);
         return true;
+    }
+
+    buscarContacto(nombre) {
+        const contacto = this.contactos.find(contacto => contacto.nombre === nombre);
+        if(contacto) {
+            alert(`Telefono Encontrado: ${contacto.nombre} es ${contacto.telefono}`);
+        } else {
+            alert(`No se ha encontrado el contacto ${nombre}`);
+        }
+    }
+
+    listarContactos() {
+        if(this.contactos.length === 0) {
+            alert('No hay contactos en la agenda');
+            return;
+        } else {            
+            let lista = "Lista de Contactos:"
+            for(let i = 0; i < this.contactos.length; i++) {
+                lista += `${this.contactos[i].nombre} - ${this.contactos[i].telefono}`;
+                alert(lista);
+            }
+        }
+    }
+
+    agendaLlena() {
+        return this.contactos.length >= this.tamaño
     }
 }
 
@@ -61,6 +90,15 @@ do {
             } else {
                 alert("Nombre y teléfono son obligatorios");
             }
+            break;
+        case 2:
+            const buscarNombre = prompt("Introduce el nombre del contacto a buscar:");
+            if(buscarNombre) {
+                agenda.buscarContacto(buscarNombre);
+            }
+            break;
+        case 4:
+            agenda.listarContactos();
             break;
         case 6:
             alert("Hasta pronto");
