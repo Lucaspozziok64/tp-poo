@@ -18,9 +18,9 @@ class Persona {
     }
 
     mostrarDatos() {
-        document.writeln(`<p>Nombre: ${this.nombre}</p>`);
-        document.writeln(`<p>Edad: ${this.edad}</p>`);
-        document.writeln(`<p>Profesion: ${this.profesion}</p>`);
+        document.writeln(`<p>Nombre: <b>${this.nombre}</b></p>`);
+        document.writeln(`<p>Edad: <b>${this.edad}</b></p>`);
+        document.writeln(`<p>Profesion: <b>${this.profesion}</b></p>`);
     }
 }
 
@@ -29,3 +29,8 @@ const persona1 = new Persona('Colapinto', '24', 'Conductor F1');
 persona1.mostrarDatos();
 persona1.saludar();
 persona1.despedirse();
+
+const persona2 = new Persona('Elon Musk', '53', 'Empresario, Fundador');
+persona2.mostrarDatos();
+persona2.saludar();
+persona2.despedirse();
