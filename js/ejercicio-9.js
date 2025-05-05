@@ -15,7 +15,7 @@ class Animal {
 
 class Perro extends Animal {
     constructor(nombre, edad) {
-        super(nombre,edad)
+        super(nombre,edad);
     }
 
     emitirSonido() {
@@ -25,7 +25,7 @@ class Perro extends Animal {
 
 class Gato extends Animal {
     constructor(nombre, edad) {
-        super(nombre, edad)
+        super(nombre, edad);
     }
 
     emitirSonido() {
