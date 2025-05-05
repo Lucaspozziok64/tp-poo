@@ -4,8 +4,8 @@ Crea una clase llamada "Animal" que tenga las propiedades "nombre" y "edad", y e
 
 class Animal {
     constructor(nombre, edad) {
-        this.nombre
-        this.edad
+        this.nombre = nombre
+        this.edad = edad
     }
 
     emitirSonido() {
@@ -15,22 +15,26 @@ class Animal {
 
 class Perro extends Animal {
     constructor(nombre, edad) {
-        this.nombre
-        this.edad
+        super(nombre,edad)
     }
 
     emitirSonido() {
-        console.log(`Estoy ladrando...`)
+        document.writeln(`<p>Soy 🐶 ${this.nombre} y Estoy ladrando...</p>`);
     }
 }
 
 class Gato extends Animal {
     constructor(nombre, edad) {
-        this.nombre
-        this.edad
+        super(nombre, edad)
     }
 
     emitirSonido() {
-        console.log(`Miauu...`)
+        document.writeln(`<p>Soy 😺 ${this.nombre} Miauuuu...</p>`);
     }
 }
+
+const miPerro = new Perro('Budy', 5);
+miPerro.emitirSonido();
+
+const miGato = new Gato('Garfield', 7);
+miGato.emitirSonido();
