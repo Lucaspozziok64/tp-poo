@@ -12,7 +12,7 @@ class Producto {
     }
 
     imprimeDatos() {
-        document.writeln(`<p>Datos del objeto: Codigo <b>${this.codigo}</b> Nombre: <b>${this.nombre}</b> Precio: $<b>${this.precio}</b></p>`);
+        return (`<p>Datos del objeto: Codigo <b>${this.codigo}</b> Nombre: <b>${this.nombre}</b> Precio: $<b>${this.precio}</b></p>`);
     }
 }
 
@@ -22,8 +22,6 @@ productos.push(new Producto('#213213', 'Venzo', 700000));
 productos.push(new Producto('#232424', 'Nike', 80000));
 productos.push(new Producto('#434345', 'Lacoste', 60000));
 
-console.log(productos[0]);
-
 for(let i = 0; i < productos.length; i++) {
-    console.log(productos[i]);
+    document.writeln(productos[i].imprimeDatos());
 }
