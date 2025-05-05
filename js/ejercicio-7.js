@@ -36,6 +36,11 @@ class Agenda {
             alert('La agenda esta llena, no se puede añadir mas contactos');
             return false;
         }
+
+        if(this.existeContacto(contacto)) {
+            alert('El contacto ya existe');
+            return false;
+        }
         this.contactos.push(contacto);
         return true;
     }
@@ -64,6 +69,20 @@ class Agenda {
 
     agendaLlena() {
         return this.contactos.length >= this.tamaño
+    }
+
+    existeContacto(nombre) {
+        const nombreBuscado = nombre;
+        for(let i = 0; i < this.contactos.length; i++) {
+            if(this.contactos[i].nombre.toLowerCase() === nombreBuscado) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    huecosLibres() {
+        return this.tamaño - this.contactos.length;
     }
 }
 
@@ -99,6 +118,9 @@ do {
             break;
         case 4:
             agenda.listarContactos();
+            break;
+        case 5:
+            alert(`Huecos libres: ${agenda.huecosLibres()}`)
             break;
         case 6:
             alert("Hasta pronto");
