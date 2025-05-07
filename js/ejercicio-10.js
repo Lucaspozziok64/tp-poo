@@ -21,7 +21,14 @@ class Aeropuerto {
     }
 
     buscarAvion(nombre) {
-        return this.listaDeAviones.find(avion => avion.nombre === nombre);
+        const avionBuscado = this.listaDeAviones.find(avion => avion.nombre === nombre);
+        if(avionBuscado) {
+            console.log(`Avion econtrado: ${avionBuscado.nombre}, Capacidad: ${avionBuscado.capacidad}, Destino: ${avionBuscado.destino}`);
+            return avionBuscado;
+        } else {
+            console.log(`No se encontro el avion ${nombre}`);
+            return null;
+        }
     }
 }
 
@@ -36,9 +43,19 @@ class Avion {
     abordar(pasajero) {
         if (this.listaDePasajeros.length < this.capacidad) {
             this.listaDePasajeros.push(pasajero);
-            console.log("Pasajero abordado con éxito");
+            console.log(`${pasajero} ha aborado con éxito en el avión ${this.nombre}`);
         } else {
-            console.log("Avión lleno");
+            console.log(`El Avión ${this.nombre} está lleno. ${pasajero} no puede aboradar`);
         }
     }
 }
+
+const aeropuerto = new Aeropuerto("Aeropuerto Internacional");
+
+const avion1 = new Avion("Aerolineas Argentinas ", 100, "New York");
+const avion2 = new Avion("JetSmart", 150, "Londres");
+const avion3 = new Avion("flyBondy", 200, "Tokio");
+
+aeropuerto.agregarAvion(avion1);
+aeropuerto.agregarAvion(avion2);
+aeropuerto.agregarAvion(avion3);
