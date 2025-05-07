@@ -23,10 +23,10 @@ class Aeropuerto {
     buscarAvion(nombre) {
         const avionBuscado = this.listaDeAviones.find(avion => avion.nombre === nombre);
         if(avionBuscado) {
-            console.log(`Avion econtrado: ${avionBuscado.nombre}, Capacidad: ${avionBuscado.capacidad}, Destino: ${avionBuscado.destino}`);
+            document.writeln(`<h3>Avion econtrado: ${avionBuscado.nombre}, Capacidad: ${avionBuscado.capacidad}, Destino: ${avionBuscado.destino}</h3>`);
             return avionBuscado;
         } else {
-            console.log(`No se encontro el avion ${nombre}`);
+            document.writeln(`No se encontro el avion ${nombre}`);
             return null;
         }
     }
@@ -43,9 +43,9 @@ class Avion {
     abordar(pasajero) {
         if (this.listaDePasajeros.length < this.capacidad) {
             this.listaDePasajeros.push(pasajero);
-            console.log(`${pasajero} ha aborado con éxito en el avión ${this.nombre}`);
+            document.writeln(`<p><b>${pasajero}</b> ha aborado con éxito en el avión <b>${this.nombre}</b></p>`);
         } else {
-            console.log(`El Avión ${this.nombre} está lleno. ${pasajero} no puede aboradar`);
+            document.writeln(`El Avión ${this.nombre} está lleno. ${pasajero} no puede aboradar`);
         }
     }
 }
@@ -59,3 +59,15 @@ const avion3 = new Avion("flyBondy", 200, "Tokio");
 aeropuerto.agregarAvion(avion1);
 aeropuerto.agregarAvion(avion2);
 aeropuerto.agregarAvion(avion3);
+
+const avionEncontrado = aeropuerto.buscarAvion("JetSmart");
+
+if (avionEncontrado) {
+    avionEncontrado.abordar("Lucas Figueroa");
+    avionEncontrado.abordar("Juan Perez");
+    avionEncontrado.abordar("Ana Gomez");
+    avionEncontrado.abordar("Pedro Rodriguez");
+    avionEncontrado.abordar("Maria Fernandez");
+} else {
+    document.writeln("No se encontró el avión");                     
+}
