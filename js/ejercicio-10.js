@@ -26,7 +26,7 @@ class Aeropuerto {
             document.writeln(`<h3>Avion econtrado: ${avionBuscado.nombre}, Capacidad: ${avionBuscado.capacidad}, Destino: ${avionBuscado.destino}</h3>`);
             return avionBuscado;
         } else {
-            document.writeln(`No se encontro el avion ${nombre}`);
+            document.writeln(`<p>No se encontro el avion: 🛬❌<b>${nombre}❌</b></p>`);
             return null;
         }
     }
@@ -43,7 +43,7 @@ class Avion {
     abordar(pasajero) {
         if (this.listaDePasajeros.length < this.capacidad) {
             this.listaDePasajeros.push(pasajero);
-            document.writeln(`<p><b>${pasajero}</b> ha aborado con éxito en el avión <b>${this.nombre}</b></p>`);
+            document.writeln(`<p><b>${pasajero}</b> ha abordado con éxito en el avión 🛫<b>${this.nombre}</b></p>`);
         } else {
             document.writeln(`El Avión ${this.nombre} está lleno. ${pasajero} no puede aboradar`);
         }
@@ -68,6 +68,6 @@ if (avionEncontrado) {
     avionEncontrado.abordar("Ana Gomez");
     avionEncontrado.abordar("Pedro Rodriguez");
     avionEncontrado.abordar("Maria Fernandez");
-} else {
-    document.writeln("No se encontró el avión");                     
-}
+    document.writeln('No hay mas pasajeros......');
+    document.writeln(`<p>✈️✈️El avión <b>${avionEncontrado.nombre}</b> Esta despegando con destino a: <b>${avionEncontrado.destino}✈️✈️🌎</b></p>`);
+} 
