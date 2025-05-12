@@ -3,7 +3,7 @@ Escribe una clase que permita crear distintos objetos “rectángulos”, con la
 */
 
 
-class rectangulo {
+class Rectangulo {
     constructor(alto, ancho) {
         this.alto = alto;
         this.ancho = ancho;
@@ -17,7 +17,7 @@ class rectangulo {
         return this.alto * this.ancho;
     }
 
-    mostrarpropiedades() {
+    mostrarPropiedades() {
         return (`<p>El alto del rectangulo es: ${this.alto} y el ancho es: ${this.ancho}</p>`);
     }
 
@@ -38,15 +38,15 @@ class rectangulo {
     }
 }
 
-const miRectangulo = new rectangulo(10, 15);
+const miRectangulo = new Rectangulo(10, 15);
 
-document.writeln(miRectangulo.mostrarpropiedades());
+document.writeln(miRectangulo.mostrarPropiedades());
 document.writeln(`<p>El perimetro del rectangulo es: ${miRectangulo.calcularPerimetro()}</p>`);
 document.writeln(`<p>El area del rectangulo es: ${miRectangulo.calcularArea()}</p>`);
 
 miRectangulo.modificarAlto(8);
 miRectangulo.modificarAncho(12);
 
-document.writeln(miRectangulo.mostrarpropiedades());
+document.writeln(miRectangulo.mostrarPropiedades());
 document.writeln(`<p>El nuevo perimetro del rectangulo es: ${miRectangulo.calcularPerimetro()}</p>`);
 document.writeln(`<p>Nueva area del rectangulo es: ${miRectangulo.calcularArea()}</p>`);
