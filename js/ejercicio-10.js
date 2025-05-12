@@ -41,6 +41,12 @@ class Avion {
     }
 
     abordar(pasajero) {
+
+        if (this.listaDePasajeros.includes(pasajero)) {
+            document.writeln(`<p><b>❌${pasajero}</b> ya está en el avión <b>${this.nombre}❌</b></p>`);
+            return;
+        }
+
         if (this.listaDePasajeros.length < this.capacidad) {
             this.listaDePasajeros.push(pasajero);
             document.writeln(`<p><b>${pasajero}</b> ha abordado con éxito en el avión 🛫<b>${this.nombre}</b></p>`);
@@ -68,6 +74,8 @@ if (avionEncontrado) {
     avionEncontrado.abordar("Ana Gomez");
     avionEncontrado.abordar("Pedro Rodriguez");
     avionEncontrado.abordar("Maria Fernandez");
+    avionEncontrado.abordar("Lucas Figueroa");
+    avionEncontrado.abordar("Juan Perez");
     document.writeln('No hay mas pasajeros......');
     document.writeln(`<p>✈️✈️El avión <b>${avionEncontrado.nombre}</b> Esta despegando con destino a: <b>${avionEncontrado.destino}✈️✈️🌎</b></p>`);
-} 
+}
