@@ -3,7 +3,7 @@ Escribe una clase que permita crear distintos objetos “rectángulos”, con la
 */
 
 
-class rectangulo {
+class Rectangulo {
     constructor(alto, ancho) {
         this.alto = alto;
         this.ancho = ancho;
@@ -17,7 +17,7 @@ class rectangulo {
         return this.alto * this.ancho;
     }
 
-    mostrarpropiedades() {
+    mostrarPropiedades() {
         return (`<p>El alto del rectangulo es: ${this.alto} y el ancho es: ${this.ancho}</p>`);
     }
 
