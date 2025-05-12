@@ -18,13 +18,13 @@ class Persona {
     }
 
     mostrarDatos() {
+        document.writeln('<h3>Datos Persona</h3>')
         document.writeln(`<p>Nombre: <b>${this.nombre}</b></p>`);
         document.writeln(`<p>Edad: <b>${this.edad}</b></p>`);
         document.writeln(`<p>Profesion: <b>${this.profesion}</b></p>`);
     }
 }
 
-document.writeln('<p>PERSONA</p>')
 const persona1 = new Persona('Colapinto', '24', 'Conductor F1');
 persona1.mostrarDatos();
 persona1.saludar();
