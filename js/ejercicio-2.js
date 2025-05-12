@@ -20,21 +20,17 @@ const cuenta = {
         } else {
             alert('Ingrese una cantidad válida')
         }
-        document.writeln(`<h3>Se ha ingresado ${cantidad} a la cuenta</h3>`);
+        document.writeln(`<h3>Se ha ingresado $${cantidad} a la cuenta</h3>`);
     }
     ,extraer: function(){
         const cantidad = parseInt(prompt('Ingrese la cantidad a retirar'));
-        if(!isNaN(cantidad) && cantidad >= cantidad) {
-            if(this.saldo >= cantidad) {
+        if(this.saldo >= cantidad) {
                 this.saldo -= cantidad;
-                alert(`Se retiraron ${cantidad}, Nuevo saldo: ${this.saldo}`);
-            } else {
-                alert('Saldo insuficiente');
-            }
+                document.writeln(`<h3>Se retiraron $${cantidad}, Nuevo saldo: $${this.saldo}</h3>`);
+                return true;
         } else {
-            alert('Ingrese una cantidad válida');
+            document.writeln('<h3>❌No se puede extraer monto mayor a su saldo❌</h3>');
         }
-        document.writeln(`<h3>Se ha retirado ${cantidad} de la cuenta</h3>`);
     }
     ,informar: function(){
         document.writeln(`<h3>El saldo de la cuenta es de:  $${this.saldo}</h3>`);
